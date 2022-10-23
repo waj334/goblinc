@@ -1,0 +1,30 @@
+syntax = "proto3";
+option go_package = "github.com/waj334/goblinc/tests";
+
+import "include/options.proto";
+
+option (system_options).sizeof_word = WORD_32;
+
+message test0 {
+  uint32 tuint8     = 1 [(field_options).bits=SZ_8BIT];
+  repeated uint32 tarruint8  = 2 [(field_options).bits=SZ_8BIT, (field_options).length=4];
+  int32  tint8      = 3 [(field_options).bits=SZ_8BIT];
+  repeated uint32 tarrint8   = 4 [(field_options).bits=SZ_8BIT, (field_options).length=4];
+
+  uint32 tuint32    = 5;
+  repeated uint32 tarruint32 = 6 [(field_options).length=4];
+  int32  tint32     = 7;
+  repeated uint32 tarrint32  = 8 [(field_options).length=4];
+
+  uint64 tuint64    = 9;
+  repeated uint64 tarruint64 = 10 [(field_options).length=4];
+  int64  tint64     = 11;
+  repeated uint64 tarrint64  = 12 [(field_options).length=4];
+
+  float  tfloat32     = 13;
+  repeated float tarrfloat32   = 14 [(field_options).length=4];
+  double tfloat64     = 15;
+  repeated double tarrfloat64  = 16 [(field_options).length=4];
+
+  bytes tbytes = 17 [(field_options).length=4];
+}
